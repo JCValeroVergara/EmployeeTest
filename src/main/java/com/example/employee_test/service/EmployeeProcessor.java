@@ -1,5 +1,6 @@
 package com.example.employee_test.service;
 
+import com.example.employee_test.dto.EmployeeCreateDto;
 import com.example.employee_test.models.Employees;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import java.time.Period;
 @Service
 public class EmployeeProcessor {
 
-    public Employees processEmployee(Employees employee) {
+    public EmployeeCreateDto processEmployee(EmployeeCreateDto employee) {
 
         Period age = Period.between(employee.getDateBirth(), LocalDate.now());
         employee.setAge(String.format("%d years, %d months, %d days", age.getYears(), age.getMonths(), age.getDays()));
