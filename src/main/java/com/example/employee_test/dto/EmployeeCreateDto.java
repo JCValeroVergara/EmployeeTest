@@ -1,30 +1,17 @@
-package com.example.employee_test.models;
+package com.example.employee_test.dto;
 
 import com.example.employee_test.validations.Adult;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Positive;
-import lombok.*;
-
+import lombok.Data;
 
 import java.time.LocalDate;
 
-@Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-public class Employees {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @NotBlank(message = "The first name is required")
+public class EmployeeCreateDto {
+    @NotBlank(message = "The name is required")
     private String firstName;
 
     @NotBlank(message = "The last name is required")
