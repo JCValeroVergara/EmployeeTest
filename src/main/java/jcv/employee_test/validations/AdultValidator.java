@@ -1,4 +1,4 @@
-package com.example.employee_test.validations;
+package jcv.employee_test.validations;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

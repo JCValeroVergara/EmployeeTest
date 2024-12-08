@@ -1,4 +1,4 @@
-package com.example.employee_test.models;
+package jcv.employee_test.models;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

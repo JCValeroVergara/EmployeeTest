@@ -1,4 +1,4 @@
-package com.example.employee_test;
+package jcv.employee_test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

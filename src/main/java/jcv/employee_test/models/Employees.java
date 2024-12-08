@@ -1,6 +1,6 @@
-package com.example.employee_test.models;
+package jcv.employee_test.models;
 
-import com.example.employee_test.validations.Adult;
+import jcv.employee_test.validations.Adult;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

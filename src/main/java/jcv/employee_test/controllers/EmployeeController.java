@@ -1,8 +1,7 @@
-package com.example.employee_test.controllers;
+package jcv.employee_test.controllers;
 
-import com.example.employee_test.dto.EmployeeCreateDto;
-import com.example.employee_test.models.Employees;
-import com.example.employee_test.service.EmployeeService;
+import jcv.employee_test.dto.EmployeeCreateDto;
+import jcv.employee_test.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

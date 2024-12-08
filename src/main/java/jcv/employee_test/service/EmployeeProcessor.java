@@ -1,7 +1,6 @@
-package com.example.employee_test.service;
+package jcv.employee_test.service;
 
-import com.example.employee_test.dto.EmployeeCreateDto;
-import com.example.employee_test.models.Employees;
+import jcv.employee_test.dto.EmployeeCreateDto;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

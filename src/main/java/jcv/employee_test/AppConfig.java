@@ -1,4 +1,4 @@
-package com.example.employee_test;
+package jcv.employee_test;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
