@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.jcv.com/addEmployee"
+           xmlns="http://www.jcv.com/addEmployee"
+           elementFormDefault="qualified">
+
+    <!-- Definición del mensaje de solicitud AddEmployeeRequest -->
+    <xs:element name="AddEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="documentNumber" type="xs:string"/>
+                <xs:element name="documentType" type="xs:string"/>
+                <xs:element name="dateBirth" type="xs:date"/>
+                <xs:element name="dateJoining" type="xs:date"/>
+                <xs:element name="position" type="xs:string"/>
+                <xs:element name="salary" type="xs:decimal"/>
+                <xs:element name="age" type="xs:string"/>
+                <xs:element name="companyDuration" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definición del mensaje de respuesta AddEmployeeResponse -->
+    <xs:element name="AddEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="success" type="xs:boolean"/>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
