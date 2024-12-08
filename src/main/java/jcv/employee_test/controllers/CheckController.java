@@ -1,4 +1,4 @@
-package com.example.employee_test.controllers;
+package jcv.employee_test.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

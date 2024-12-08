@@ -1,6 +1,6 @@
-package com.example.employee_test.dto;
+package jcv.employee_test.dto;
 
-import com.example.employee_test.validations.Adult;
+import jcv.employee_test.validations.Adult;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;

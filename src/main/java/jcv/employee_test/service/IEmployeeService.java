@@ -1,6 +1,6 @@
-package com.example.employee_test.service;
+package jcv.employee_test.service;
 
-import com.example.employee_test.models.Employees;
+import jcv.employee_test.models.Employees;
 import java.util.List;
 
 public interface IEmployeeService {
