@@ -36,7 +36,8 @@ This project is a REST service developed in Java using Spring Boot, JPA, and Lom
 
 2. **Create the database**:
     ```sql
-   Configurar una base de datos en MySQL o MariaDB. Por defecto, se utiliza employees_test_db.
+   
+   Set up a database in MySQL or MariaDB. By default, employees_test_db is used.
 
 3. **Edit database configuration**:
 
@@ -175,15 +176,15 @@ EmployeeTest/
 
 ## Technologies used
 
-- ```Spring Boot: Desarrollo REST.```
+- ```Spring Boot: REST development.```
 
-- ```JPA: Gestión de datos.```
+- ```JPA: Data management.```
 
-- ```Lombok: Reducción de boilerplate.```
+- ```Lombok:Boilerplate reductione.```
 
-- ```MySQL/MariaDB: Data Base.```
+- ```MySQL/MariaDB: Database.```
 
-- ```Java 21: Versión del lenguaje.```
+- ```Java 21:Language version.```
 
 ## Author
 
