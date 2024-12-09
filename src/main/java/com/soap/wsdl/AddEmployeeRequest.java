@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
 // Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2024.12.08 a las 06:12:20 PM COT 
+// Generado el: 2024.12.08 a las 10:48:37 PM COT 
 //
 
 
@@ -36,6 +36,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="dateJoining" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="position" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="salary" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
+ *         &lt;element name="age" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="companyDuration" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -53,7 +55,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "dateBirth",
     "dateJoining",
     "position",
-    "salary"
+    "salary",
+    "age",
+    "companyDuration"
 })
 @XmlRootElement(name = "AddEmployeeRequest")
 public class AddEmployeeRequest {
@@ -76,6 +80,10 @@ public class AddEmployeeRequest {
     protected String position;
     @XmlElement(required = true)
     protected BigDecimal salary;
+    @XmlElement(required = true)
+    protected String age;
+    @XmlElement(required = true)
+    protected String companyDuration;
 
     /**
      * Obtiene el valor de la propiedad firstName.
@@ -267,6 +275,54 @@ public class AddEmployeeRequest {
      */
     public void setSalary(BigDecimal value) {
         this.salary = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad age.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAge() {
+        return age;
+    }
+
+    /**
+     * Define el valor de la propiedad age.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAge(String value) {
+        this.age = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad companyDuration.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCompanyDuration() {
+        return companyDuration;
+    }
+
+    /**
+     * Define el valor de la propiedad companyDuration.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCompanyDuration(String value) {
+        this.companyDuration = value;
     }
 
 }

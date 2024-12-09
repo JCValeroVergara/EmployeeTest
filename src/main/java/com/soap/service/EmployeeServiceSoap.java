@@ -11,17 +11,20 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class EmployeeServiceSoap {
-    private static final String NAMESPACE_URI = "http://www.jcv.com/addEmployee";
+    private static final String NAMESPACE_URI = "https://jcvalerovergara.github.io/employee.wsdl";
     private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeServiceSoap.class);
 
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "AddEmployeeRequest")
     @ResponsePayload
     public AddEmployeeResponse addEmployee(@RequestPayload AddEmployeeRequest request) {
-        LOGGER.info("Servicio SOAP llamado para agregar empleado. Datos recibidos: {}", request);
+        LOGGER.info("SOAP service called to add employee. Data received: {}", request);
+
+
         AddEmployeeResponse response = new AddEmployeeResponse();
-        response.setSuccess(true);
-        response.setMessage("Employee added: " + request.getFirstName() + " " + request.getLastName());
+        response.setMessage(request.getFirstName() + " has been successfully added");
+
+        LOGGER.info("Service response SOAP: {}", response);
         return response;
     }
 }

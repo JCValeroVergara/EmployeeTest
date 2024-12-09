@@ -109,6 +109,45 @@ It is recommended to use Postman or Insomnia to test the endpoints. For example:
     URL: http://localhost:8080/employees/all
     Method: GET
 
+
+---
+## SOAP Service Configuration
+
+This project integrates with a SOAP web service to store employee data. The SOAP service is set up to handle requests for employee information and persist it into the database.
+
+### SOAP Configuration
+
+1. **Web Service Configuration**: The SOAP web service is configured in `com.soap.config.WebServiceConfig`. This configuration exposes the SOAP endpoint at `/ws/employee`.
+
+2. **WSDL (Web Service Definition Language)**: The WSDL file is located at `/ws/employee.wsdl`, and it defines the structure and operations for the SOAP service. You can access it by visiting:
+    ```
+    http://localhost:8080/ws/employee.wsdl
+    ```
+
+3. **SOAP Service**: The service that processes the SOAP requests is implemented in the class `com.soap.service.EmployeeServiceSoap`. It provides operations such as `addEmployee` to persist employee data.
+
+
+### Sending SOAP Requests
+
+        To interact with the SOAP service, you can use SOAP clients like SoapUI or Postman:
+
+#### **SoapUI**:
+
+        1. **Open SoapUI** and import the WSDL file:
+        - You can import the WSDL file by providing the URL `http://localhost:8080/ws/employee.wsdl` or by downloading the file and opening it locally in SoapUI.
+
+        2. **Send a `addEmployee` request** to add an employee:
+        - Once the WSDL is imported, you can create a new request to the `addEmployee` operation.
+        - Fill in the necessary employee data like `employeeId`, `employeeName`, `dateBirth`, `dateJoining`, `position`, and `salary`.
+
+#### **Postman**:
+
+        1. **Set the request type to POST**.
+        2. **Set the URL to `http://localhost:8080/ws/employee`** (or wherever your SOAP service is running).
+        3. **In the body of the request, add the SOAP XML** as shown below:
+
+
+
 ---
 ## Project Structure
 
@@ -116,6 +155,11 @@ It is recommended to use Postman or Insomnia to test the endpoints. For example:
 EmployeeTest/
 ├── src/
 │   ├── main/
+│   │   ├── java/com/sopa/
+│   │   │   ├── client/         # Cliente SOAP.
+│   │   │   ├── config/         # Configurations.
+│   │   │   ├── service/        # Services SOAP.
+│   │   │   ├── wsdl/           # WSDL SOAP.
 │   │   ├── java/jcv/employee_test/
 │   │   │   ├── controllers/    # Controllers REST.
 │   │   │   ├── dto/            # Data Transfer Objects.

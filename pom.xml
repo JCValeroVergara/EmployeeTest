@@ -67,6 +67,12 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>${spring-boot.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>6.2.0</version>
+		</dependency>
 		<!-- Jakarta Validation API -->
 		<dependency>
 			<groupId>jakarta.validation</groupId>
@@ -94,6 +100,8 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.1</version> <!-- Use the latest version -->
 		</dependency>
+
+		<!-- JAXB Runtime -->
 		<dependency>
 			<groupId>jakarta.xml.bind</groupId>
 			<artifactId>jakarta.xml.bind-api</artifactId>
@@ -101,8 +109,16 @@
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
-
 		</dependency>
+
+		<!-- Add javax.wsdl for WSDL support -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-wsdl</artifactId>
+			<version>4.0.5</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

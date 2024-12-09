@@ -1,44 +1,72 @@
 package com.soap.config;
 
 
+import com.soap.service.EmployeeServiceSoap;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
-import org.springframework.ws.server.EndpointInterceptor;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
-import org.springframework.xml.xsd.SimpleXsdSchema;
-import org.springframework.xml.xsd.XsdSchema;
 
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 @Configuration
 @EnableWs
 public class WebServiceConfig extends WsConfigurerAdapter {
 
-    @Override
-    public void addInterceptors(List<EndpointInterceptor> interceptors) {
-        super.addInterceptors(interceptors);
+//    @Override
+//    public void addInterceptors(List<EndpointInterceptor> interceptors) {
+//        super.addInterceptors(interceptors);
+//    }
+    @Bean(name = "employees")
+    public DefaultWsdl11Definition defaultWsdl11Definition() {
+        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+        wsdl11Definition.setPortTypeName("EmployeePortType");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("https://jcvalerovergara.github.io/employee.wsdl");
+        return wsdl11Definition;
     }
 
-    @Bean(name = "employees")
+    @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet() {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<>(servlet, "/ws/*");
     }
+
     @Bean
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema employeeSchema) {
-        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-        definition.setPortTypeName("AddEmployeePortType");
-        definition.setLocationUri("/ws");
-        definition.setTargetNamespace("http://www.jcv.com/addEmployee");
-        definition.setSchema(employeeSchema);
-        return definition;
+    public ServletRegistrationBean<HttpServlet> wsldServelet(){
+
+        HttpServlet wsdlServlet = new HttpServlet() {
+            @Override
+            protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+                try (InputStream inputStream = new ClassPathResource("employee.wsdl").getInputStream();
+                     OutputStream outputStream = resp.getOutputStream()) {
+                    resp.setContentType("application/xml");
+                    byte[] buffer = new byte[1024];
+                    int bytesRead;
+                    while ((bytesRead = inputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                    }
+                    outputStream.flush();
+                }
+            }
+        };
+        return new ServletRegistrationBean<>(wsdlServlet, "/ws/employee.wsdl");
     }
 
 
+    @Bean
+    public EmployeeServiceSoap employeeServiceSoap() {
+        return new EmployeeServiceSoap();
+    }
 }

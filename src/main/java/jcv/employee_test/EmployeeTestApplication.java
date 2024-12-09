@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
-@SpringBootApplication(scanBasePackages = "com.soap")
+@SpringBootApplication
 @EnableAutoConfiguration
 public class EmployeeTestApplication {
 
@@ -20,8 +20,8 @@ public class EmployeeTestApplication {
 
 	@EventListener(ApplicationReadyEvent.class)
 	public void logServicesStarted() {
-		LOGGER.info("La aplicación Spring Boot ha iniciado correctamente.");
-		LOGGER.info("Servicios REST y SOAP deberían estar funcionando ahora.");
+		LOGGER.info("The Spring Boot app has successfully launched.");
+		LOGGER.info("REST and SOAP services should be up and running now.");
 	}
 
 }
